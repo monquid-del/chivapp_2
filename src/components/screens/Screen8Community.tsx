@@ -66,7 +66,7 @@ export const Screen8Community: React.FC<Screen8CommunityProps> = ({
       {/* Top Header */}
       <div className="px-5 pt-5 sm:pt-3 pb-2 flex items-center justify-between sticky top-0 bg-[#FAF9F5]/95 backdrop-blur-md z-10">
         <h1 className="text-xl font-black tracking-widest text-[#154331]">
-          CHIVA
+          CHIVAPP
         </h1>
 
         <div className="flex items-center gap-3">

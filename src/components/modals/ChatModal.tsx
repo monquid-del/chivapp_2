@@ -103,7 +103,7 @@ export const ChatModal: React.FC<ChatModalProps> = ({ driver, onClose }) => {
       {/* Trust Notice */}
       <div className="px-4 py-1.5 bg-emerald-50 border-b border-emerald-100 flex items-center justify-center gap-1.5 text-[10px] text-emerald-800 font-medium">
         <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-        <span>Verified CHIVA carpool conversation</span>
+        <span>Verified CHIVAPP carpool conversation</span>
       </div>
 
       {/* Messages Feed */}

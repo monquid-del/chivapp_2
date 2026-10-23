@@ -1,3 +1,15 @@
+export interface CarSeat {
+  id: 'front_left' | 'front_right' | 'rear_left' | 'rear_center' | 'rear_right';
+  label: string;
+  isDriver?: boolean;
+  occupant?: {
+    name: string;
+    roleOrCompany: string;
+    avatar: string;
+  };
+  isAvailable: boolean;
+}
+
 export interface Driver {
   id: string;
   name: string;
@@ -23,6 +35,9 @@ export interface Driver {
     smoking: boolean;
     pets: boolean;
   };
+  seats?: CarSeat[];
+  trunkCapacity?: string;
+  driverRoleOrCompany?: string;
 }
 
 export interface UserProfile {

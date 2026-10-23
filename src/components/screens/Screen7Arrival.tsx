@@ -55,7 +55,7 @@ export const Screen7Arrival: React.FC<Screen7ArrivalProps> = ({ onCompleteFeedba
         {/* Header Texts */}
         <div className="text-center mt-3">
           <h2 className="text-2xl font-black text-slate-900 tracking-tight">You've arrived!</h2>
-          <p className="text-xs text-slate-500 mt-0.5">Thanks for riding with CHIVA</p>
+          <p className="text-xs text-slate-500 mt-0.5">Thanks for riding with CHIVAPP</p>
         </div>
 
         {/* Trip details card */}

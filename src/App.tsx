@@ -21,7 +21,7 @@ import { FilterModal } from './components/modals/FilterModal';
 import { NotificationsModal } from './components/modals/NotificationsModal';
 
 import { INITIAL_USER, MOCK_DRIVERS } from './data/mockData';
-import { Driver, RidePlan, UserProfile } from './types';
+import { CarSeat, Driver, RidePlan, UserProfile } from './types';
 import { ShieldCheck, Star, Award, ChevronLeft } from 'lucide-react';
 
 export type ScreenId = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
@@ -49,6 +49,7 @@ export default function App() {
   // Drivers
   const [drivers, setDrivers] = useState<Driver[]>(MOCK_DRIVERS);
   const [selectedDriver, setSelectedDriver] = useState<Driver>(MOCK_DRIVERS[0]);
+  const [selectedSeatId, setSelectedSeatId] = useState<CarSeat['id']>('rear_center');
 
   // Modals
   const [isCallOpen, setIsCallOpen] = useState(false);
@@ -178,6 +179,8 @@ export default function App() {
           {currentScreen === 5 && (
             <Screen5RideDetails
               driver={selectedDriver}
+              selectedSeatId={selectedSeatId}
+              onSelectSeat={(seat) => setSelectedSeatId(seat)}
               onBack={handleBack}
               onConfirmAndBook={handleConfirmAndBook}
             />
@@ -187,6 +190,7 @@ export default function App() {
           {currentScreen === 6 && (
             <Screen6DuringRide
               driver={selectedDriver}
+              selectedSeatId={selectedSeatId}
               onEndRide={handleEndRide}
               onOpenCall={() => setIsCallOpen(true)}
               onOpenChat={() => setIsChatOpen(true)}

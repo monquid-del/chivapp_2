@@ -10,23 +10,43 @@ import {
   Dog,
   Sparkles,
   ArrowRight,
-  Info,
+  Armchair,
 } from 'lucide-react';
-import { Driver } from '../../types';
+import { CarSeat, Driver } from '../../types';
 import { InteractiveMap } from '../InteractiveMap';
+import { SeatSelector } from '../SeatSelector';
 
 interface Screen5RideDetailsProps {
   driver: Driver;
+  selectedSeatId: CarSeat['id'];
+  onSelectSeat: (seatId: CarSeat['id']) => void;
   onBack: () => void;
   onConfirmAndBook: () => void;
 }
 
 export const Screen5RideDetails: React.FC<Screen5RideDetailsProps> = ({
   driver,
+  selectedSeatId,
+  onSelectSeat,
   onBack,
   onConfirmAndBook,
 }) => {
   const [showDriverMenu, setShowDriverMenu] = useState(false);
+
+  const getSeatFriendlyName = (id: CarSeat['id']) => {
+    switch (id) {
+      case 'front_right':
+        return 'Front Right';
+      case 'rear_left':
+        return 'Rear Left';
+      case 'rear_center':
+        return 'Center';
+      case 'rear_right':
+        return 'Rear Right';
+      default:
+        return 'Rear Seat';
+    }
+  };
 
   return (
     <div className="flex flex-col h-full bg-[#FAF9F5] text-slate-800 overflow-y-auto no-scrollbar">
@@ -67,7 +87,7 @@ export const Screen5RideDetails: React.FC<Screen5RideDetailsProps> = ({
         </div>
       </div>
 
-      <div className="px-5 py-2 flex-1 space-y-3.5">
+      <div className="px-5 py-2 flex-1 space-y-4">
         {/* Driver Profile Card */}
         <div className="p-4 rounded-2xl bg-white border border-slate-200/90 shadow-2xs">
           <div className="flex items-center justify-between">
@@ -106,6 +126,28 @@ export const Screen5RideDetails: React.FC<Screen5RideDetailsProps> = ({
               </span>
             ))}
           </div>
+        </div>
+
+        {/* Seat Selection Section (Matching User Reference) */}
+        <div>
+          <div className="flex items-center justify-between mb-2">
+            <div className="flex items-center gap-1.5">
+              <Armchair className="w-4 h-4 text-[#00875A]" />
+              <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wide">
+                Select Your Seat
+              </h4>
+            </div>
+            <span className="text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
+              {getSeatFriendlyName(selectedSeatId)} selected
+            </span>
+          </div>
+
+          {/* Reference-Accurate Seat Diagram */}
+          <SeatSelector
+            driver={driver}
+            selectedSeatId={selectedSeatId}
+            onSelectSeat={onSelectSeat}
+          />
         </div>
 
         {/* Vehicle Information */}
@@ -198,9 +240,9 @@ export const Screen5RideDetails: React.FC<Screen5RideDetailsProps> = ({
       <div className="p-5 mt-auto bg-gradient-to-t from-[#FAF9F5] via-[#FAF9F5] to-transparent pt-3">
         <button
           onClick={onConfirmAndBook}
-          className="w-full py-3.5 px-6 rounded-2xl bg-[#154331] hover:bg-[#1C533E] active:scale-[0.98] transition-all text-white font-semibold text-sm tracking-wide shadow-md shadow-[#154331]/20 flex items-center justify-center gap-2 cursor-pointer"
+          className="w-full py-3.5 px-6 rounded-2xl bg-[#00875A] hover:bg-[#00704A] active:scale-[0.98] transition-all text-white font-semibold text-sm tracking-wide shadow-md shadow-[#00875A]/25 flex items-center justify-center gap-2 cursor-pointer"
         >
-          <span>Confirm & Book</span>
+          <span>Confirm & Book • {getSeatFriendlyName(selectedSeatId)} Seat</span>
           <ArrowRight className="w-4 h-4" />
         </button>
         <p className="text-center text-[11px] font-semibold text-emerald-800 mt-2 flex items-center justify-center gap-1">

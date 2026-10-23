@@ -12,7 +12,7 @@ export const Screen1Onboarding: React.FC<Screen1OnboardingProps> = ({ onGetStart
       {/* Top Header Brand */}
       <div className="pt-6 sm:pt-4 pb-1 text-center px-6">
         <h1 className="text-3xl font-extrabold tracking-widest text-[#154331]">
-          CHIVA
+          CHIVAPP
         </h1>
         <p className="text-xs font-semibold text-slate-700 tracking-wide mt-0.5">
           Share the ride <span className="text-[#2D6A4F] mx-1">•</span> Build the city

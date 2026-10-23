@@ -13,11 +13,12 @@ import {
   Volume2,
   VolumeX,
 } from 'lucide-react';
-import { Driver } from '../../types';
+import { CarSeat, Driver } from '../../types';
 import { InteractiveMap } from '../InteractiveMap';
 
 interface Screen6DuringRideProps {
   driver: Driver;
+  selectedSeatId?: CarSeat['id'];
   onEndRide: () => void;
   onOpenCall: () => void;
   onOpenChat: () => void;
@@ -26,6 +27,7 @@ interface Screen6DuringRideProps {
 
 export const Screen6DuringRide: React.FC<Screen6DuringRideProps> = ({
   driver,
+  selectedSeatId = 'rear_center',
   onEndRide,
   onOpenCall,
   onOpenChat,
@@ -132,9 +134,12 @@ export const Screen6DuringRide: React.FC<Screen6DuringRideProps> = ({
               Live carpool route via Av. da Liberdade
             </p>
           </div>
-          <div className="text-right">
+          <div className="text-right flex flex-col items-end gap-0.5">
             <span className="text-xs font-mono font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
               {eta} min left
+            </span>
+            <span className="text-[10px] font-semibold text-slate-500">
+              Seat: <span className="text-emerald-700 font-bold">{selectedSeatId === 'rear_center' ? 'Center' : selectedSeatId === 'rear_left' ? 'Rear Left' : selectedSeatId === 'front_right' ? 'Front Right' : 'Rear'}</span>
             </span>
           </div>
         </div>
@@ -308,7 +313,7 @@ export const Screen6DuringRide: React.FC<Screen6DuringRideProps> = ({
 
         {activeTab === 'rules' && (
           <div className="mt-2.5 p-3 rounded-2xl bg-slate-50 border border-slate-200 text-xs text-slate-700 animate-fade-in space-y-1">
-            <p className="font-bold text-slate-900">CHIVA Community Etiquette</p>
+            <p className="font-bold text-slate-900">CHIVAPP Community Etiquette</p>
             <p className="text-[11px] text-slate-600">• Be at the pickup spot 2 min before scheduled time</p>
             <p className="text-[11px] text-slate-600">• Keep seatbelt fastened during the entire trip</p>
             <p className="text-[11px] text-slate-600">• Respect silence or conversation preferences</p>

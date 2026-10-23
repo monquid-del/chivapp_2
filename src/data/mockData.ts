@@ -53,6 +53,51 @@ export const MOCK_DRIVERS: Driver[] = [
       smoking: false,
       pets: true,
     },
+    driverRoleOrCompany: 'Amazon AWS',
+    trunkCapacity: '2 Bags',
+    seats: [
+      {
+        id: 'front_left',
+        label: 'Driver',
+        isDriver: true,
+        isAvailable: false,
+        occupant: {
+          name: 'Rafael S.',
+          roleOrCompany: 'Amazon AWS',
+          avatar: ASSETS.driverRafael,
+        },
+      },
+      {
+        id: 'front_right',
+        label: 'Front Right',
+        isAvailable: false,
+        occupant: {
+          name: 'David Morales',
+          roleOrCompany: 'Globant',
+          avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&auto=format&fit=crop&q=80',
+        },
+      },
+      {
+        id: 'rear_left',
+        label: 'Rear Left',
+        isAvailable: true,
+      },
+      {
+        id: 'rear_center',
+        label: 'Center',
+        isAvailable: true,
+      },
+      {
+        id: 'rear_right',
+        label: 'Rear Right',
+        isAvailable: false,
+        occupant: {
+          name: 'Valeria',
+          roleOrCompany: 'Mercado Libre',
+          avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=120&auto=format&fit=crop&q=80',
+        },
+      },
+    ],
   },
   {
     id: 'driver-ines',

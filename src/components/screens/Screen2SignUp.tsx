@@ -136,7 +136,7 @@ export const Screen2SignUp: React.FC<Screen2SignUpProps> = ({
         <div>
           <h3 className="text-sm font-bold text-slate-900">Verify your identity</h3>
           <p className="text-[11px] text-slate-500 mt-0.5">
-            Help us keep CHIVA safe for everyone.
+            Help us keep CHIVAPP safe for everyone.
           </p>
         </div>
 

@@ -69,7 +69,7 @@ export const SOSModal: React.FC<SOSModalProps> = ({ driver, onClose }) => {
 
         {/* Safety standards */}
         <p className="text-[10px] text-slate-400 text-center leading-relaxed">
-          CHIVA 24/7 Safety Operations monitors carpools with geofence anomaly detection.
+          CHIVAPP 24/7 Safety Operations monitors carpools with geofence anomaly detection.
         </p>
       </div>
     </div>
