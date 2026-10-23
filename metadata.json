@@ -1,0 +1,6 @@
+{
+  "name": "CHIVA - Urban Carpooling",
+  "description": "Interactive mobile carpooling app to mobilize across the city. Share rides, reduce CO2, and build sustainable urban communities.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
