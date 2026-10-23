@@ -68,14 +68,6 @@ export const Screen6DuringRide: React.FC<Screen6DuringRideProps> = ({
           <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
           <span className="text-xs font-bold text-slate-800">Ride in progress</span>
         </div>
-
-        {/* End Ride Button */}
-        <button
-          onClick={onEndRide}
-          className="pointer-events-auto py-1 px-3 rounded-full bg-white/95 backdrop-blur-md border border-rose-200 hover:border-rose-400 text-rose-600 font-semibold text-xs shadow-sm active:scale-95 transition"
-        >
-          End Ride
-        </button>
       </div>
 
       {/* Main Interactive Live Map Area */}
@@ -115,8 +107,8 @@ export const Screen6DuringRide: React.FC<Screen6DuringRideProps> = ({
         </div>
       </div>
 
-      {/* In-Ride Bottom Drawer Sheet */}
-      <div className="z-10 bg-white rounded-t-3xl shadow-2xl border-t border-slate-200/80 px-5 pt-3 pb-4">
+      {/* In-Ride Bottom Drawer Sheet (with pb-24 to avoid FAB overlap) */}
+      <div className="z-10 bg-white rounded-t-3xl shadow-2xl border-t border-slate-200/80 px-5 pt-3 pb-24 max-h-[54vh] overflow-y-auto no-scrollbar">
         {/* Grab Handle */}
         <div className="w-9 h-1 rounded-full bg-slate-200 mx-auto mb-2 shrink-0" />
 
@@ -319,6 +311,17 @@ export const Screen6DuringRide: React.FC<Screen6DuringRideProps> = ({
             <p className="text-[11px] text-slate-600">• Respect silence or conversation preferences</p>
           </div>
         )}
+      </div>
+
+      {/* Floating Action Button (FAB) at Bottom for End Ride */}
+      <div className="absolute bottom-3 left-4 right-4 z-30 pointer-events-none">
+        <button
+          onClick={onEndRide}
+          className="pointer-events-auto w-full py-3 px-5 rounded-2xl bg-rose-600 hover:bg-rose-700 active:scale-[0.98] transition-all text-white font-bold text-xs tracking-wider shadow-xl shadow-rose-600/35 flex items-center justify-center gap-2 cursor-pointer border border-rose-400/30"
+        >
+          <CheckCircle2 className="w-4 h-4" />
+          <span>End Ride</span>
+        </button>
       </div>
     </div>
   );

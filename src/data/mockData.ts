@@ -3,8 +3,10 @@ import onboardingHero from '../assets/images/chiva_onboarding_hero_1792668441394
 import arrivalHero from '../assets/images/chiva_arrival_celebration_1792668441272.jpg';
 import toyotaCorolla from '../assets/images/chiva_toyota_corolla_1792668441667.jpg';
 import driverRafael from '../assets/images/chiva_driver_rafael_1792668441527.jpg';
+import chivappLogo from '../assets/images/chivapp_logo.png';
 
 export const ASSETS = {
+  logo: chivappLogo,
   onboardingHero,
   arrivalHero,
   toyotaCorolla,

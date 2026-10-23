@@ -68,8 +68,8 @@ export const Screen3PlanRide: React.FC<Screen3PlanRideProps> = ({
 
   return (
     <div className="flex flex-col h-full bg-[#FAF9F5] text-slate-800 relative overflow-hidden">
-      {/* Top Map Area (42% height) */}
-      <div className="relative h-[38%] min-h-[190px] w-full shrink-0">
+      {/* Top Map Area (compact for seamless fit without scrolling) */}
+      <div className="relative h-[28%] min-h-[140px] w-full shrink-0">
         <InteractiveMap
           progress={20}
           interactive={false}
@@ -88,15 +88,15 @@ export const Screen3PlanRide: React.FC<Screen3PlanRideProps> = ({
       </div>
 
       {/* Bottom Sheet Card Container */}
-      <div className="flex-1 -mt-5 z-10 bg-[#FAF9F5] rounded-t-3xl shadow-xl border-t border-slate-200/80 flex flex-col overflow-y-auto no-scrollbar px-5 pt-3.5 pb-4">
+      <div className="flex-1 -mt-4 z-10 bg-[#FAF9F5] rounded-t-3xl shadow-xl border-t border-slate-200/80 flex flex-col justify-between overflow-y-auto no-scrollbar px-5 pt-3 pb-3">
         {/* Drag Handle indicator */}
-        <div className="w-9 h-1 rounded-full bg-slate-300 mx-auto mb-2.5 shrink-0" />
+        <div className="w-9 h-1 rounded-full bg-slate-300 mx-auto mb-2 shrink-0" />
 
         {/* Heading */}
         <h2 className="text-base font-bold text-slate-900">Where are you going?</h2>
 
         {/* Route Input Box */}
-        <div className="mt-2.5 relative bg-white rounded-2xl border border-slate-200/90 shadow-2xs p-3">
+        <div className="mt-2 relative bg-white rounded-2xl border border-slate-200/90 shadow-2xs p-2.5">
           <div className="flex items-center gap-3">
             {/* Visual Route Nodes */}
             <div className="flex flex-col items-center py-1">
@@ -178,13 +178,13 @@ export const Screen3PlanRide: React.FC<Screen3PlanRideProps> = ({
         </div>
 
         {/* When do you want to travel? */}
-        <div className="mt-3.5">
+        <div className="mt-2">
           <h3 className="text-xs font-bold text-slate-800">When do you want to travel?</h3>
-          <div className="grid grid-cols-3 gap-2 mt-1.5">
+          <div className="grid grid-cols-3 gap-2 mt-1">
             <button
               type="button"
               onClick={() => onUpdatePlan({ travelTimeType: 'Now' })}
-              className={`py-2 px-2.5 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition active:scale-[0.98] cursor-pointer ${
+              className={`py-1.5 px-2 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition active:scale-[0.98] cursor-pointer ${
                 plan.travelTimeType === 'Now'
                   ? 'bg-[#154331] text-white shadow-xs'
                   : 'bg-white border border-slate-200 text-slate-700 hover:bg-slate-50'
@@ -197,7 +197,7 @@ export const Screen3PlanRide: React.FC<Screen3PlanRideProps> = ({
             <button
               type="button"
               onClick={() => onUpdatePlan({ travelTimeType: 'Schedule' })}
-              className={`py-2 px-2.5 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition active:scale-[0.98] cursor-pointer ${
+              className={`py-1.5 px-2 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition active:scale-[0.98] cursor-pointer ${
                 plan.travelTimeType === 'Schedule'
                   ? 'bg-[#154331] text-white shadow-xs'
                   : 'bg-white border border-slate-200 text-slate-700 hover:bg-slate-50'
@@ -210,7 +210,7 @@ export const Screen3PlanRide: React.FC<Screen3PlanRideProps> = ({
             <button
               type="button"
               onClick={() => onUpdatePlan({ travelTimeType: 'Recurring' })}
-              className={`py-2 px-2.5 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition active:scale-[0.98] cursor-pointer ${
+              className={`py-1.5 px-2 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition active:scale-[0.98] cursor-pointer ${
                 plan.travelTimeType === 'Recurring'
                   ? 'bg-[#154331] text-white shadow-xs'
                   : 'bg-white border border-slate-200 text-slate-700 hover:bg-slate-50'
@@ -223,20 +223,20 @@ export const Screen3PlanRide: React.FC<Screen3PlanRideProps> = ({
         </div>
 
         {/* Preferences (optional) */}
-        <div className="mt-3.5">
+        <div className="mt-2">
           <div className="flex items-center justify-between">
             <h3 className="text-xs font-bold text-slate-800">Preferences (optional)</h3>
             <span className="text-[10px] text-slate-400">Tap to toggle</span>
           </div>
 
-          <div className="grid grid-cols-4 gap-2 mt-1.5">
+          <div className="grid grid-cols-4 gap-1.5 mt-1">
             {/* Max detour */}
             <button
               type="button"
               onClick={cycleDetour}
-              className="p-2 rounded-xl bg-white border border-slate-200/90 text-center hover:border-slate-300 transition active:scale-95"
+              className="p-1.5 rounded-xl bg-white border border-slate-200/90 text-center hover:border-slate-300 transition active:scale-95"
             >
-              <div className="text-[10px] text-slate-500 font-medium">Max detour</div>
+              <div className="text-[9px] text-slate-500 font-medium">Max detour</div>
               <div className="text-xs font-bold text-[#154331] mt-0.5">
                 {plan.preferences.maxDetourMinutes} min
               </div>
@@ -246,9 +246,9 @@ export const Screen3PlanRide: React.FC<Screen3PlanRideProps> = ({
             <button
               type="button"
               onClick={cycleGender}
-              className="p-2 rounded-xl bg-white border border-slate-200/90 text-center hover:border-slate-300 transition active:scale-95"
+              className="p-1.5 rounded-xl bg-white border border-slate-200/90 text-center hover:border-slate-300 transition active:scale-95"
             >
-              <div className="text-[10px] text-slate-500 font-medium">Gender</div>
+              <div className="text-[9px] text-slate-500 font-medium">Gender</div>
               <div className="text-xs font-bold text-[#154331] mt-0.5 truncate">
                 {plan.preferences.gender}
               </div>
@@ -258,9 +258,9 @@ export const Screen3PlanRide: React.FC<Screen3PlanRideProps> = ({
             <button
               type="button"
               onClick={cycleQuiet}
-              className="p-2 rounded-xl bg-white border border-slate-200/90 text-center hover:border-slate-300 transition active:scale-95"
+              className="p-1.5 rounded-xl bg-white border border-slate-200/90 text-center hover:border-slate-300 transition active:scale-95"
             >
-              <div className="text-[10px] text-slate-500 font-medium">Quiet ride</div>
+              <div className="text-[9px] text-slate-500 font-medium">Quiet ride</div>
               <div className="text-xs font-bold text-[#154331] mt-0.5 truncate">
                 {plan.preferences.quietRide}
               </div>
@@ -270,9 +270,9 @@ export const Screen3PlanRide: React.FC<Screen3PlanRideProps> = ({
             <button
               type="button"
               onClick={cyclePets}
-              className="p-2 rounded-xl bg-white border border-slate-200/90 text-center hover:border-slate-300 transition active:scale-95"
+              className="p-1.5 rounded-xl bg-white border border-slate-200/90 text-center hover:border-slate-300 transition active:scale-95"
             >
-              <div className="text-[10px] text-slate-500 font-medium">Pets</div>
+              <div className="text-[9px] text-slate-500 font-medium">Pets</div>
               <div className="text-xs font-bold text-[#154331] mt-0.5 truncate">
                 {plan.preferences.pets}
               </div>
@@ -280,11 +280,11 @@ export const Screen3PlanRide: React.FC<Screen3PlanRideProps> = ({
           </div>
         </div>
 
-        {/* Primary CTA: Find Rides */}
-        <div className="pt-4 mt-auto">
+        {/* Primary CTA: Find Rides (cut in half space to avoid scrolling) */}
+        <div className="pt-2 mt-2">
           <button
             onClick={onFindRides}
-            className="w-full py-3.5 px-6 rounded-2xl bg-[#154331] hover:bg-[#1C533E] active:scale-[0.98] transition-all text-white font-semibold text-sm tracking-wide shadow-md shadow-[#154331]/20 flex items-center justify-center gap-2 cursor-pointer"
+            className="w-full py-2.5 px-5 rounded-2xl bg-[#154331] hover:bg-[#1C533E] active:scale-[0.98] transition-all text-white font-semibold text-xs tracking-wide shadow-md shadow-[#154331]/20 flex items-center justify-center gap-2 cursor-pointer"
           >
             <Search className="w-4 h-4" />
             <span>Find Rides</span>

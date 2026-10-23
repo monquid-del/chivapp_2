@@ -13,7 +13,7 @@ import {
   Sparkles,
 } from 'lucide-react';
 import { RewardItem, UserProfile } from '../../types';
-import { MOCK_REWARDS } from '../../data/mockData';
+import { MOCK_REWARDS, ASSETS } from '../../data/mockData';
 
 interface Screen8CommunityProps {
   user: UserProfile;
@@ -65,9 +65,13 @@ export const Screen8Community: React.FC<Screen8CommunityProps> = ({
     <div className="flex flex-col h-full bg-[#FAF9F5] text-slate-800 overflow-y-auto no-scrollbar">
       {/* Top Header */}
       <div className="px-5 pt-5 sm:pt-3 pb-2 flex items-center justify-between sticky top-0 bg-[#FAF9F5]/95 backdrop-blur-md z-10">
-        <h1 className="text-xl font-black tracking-widest text-[#154331]">
-          CHIVAPP
-        </h1>
+        <div className="flex items-center">
+          <img
+            src={ASSETS.logo}
+            alt="CHIVAPP"
+            className="w-[200px] h-[40px] object-contain"
+          />
+        </div>
 
         <div className="flex items-center gap-3">
           <button

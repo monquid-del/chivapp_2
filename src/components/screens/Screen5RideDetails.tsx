@@ -49,7 +49,7 @@ export const Screen5RideDetails: React.FC<Screen5RideDetailsProps> = ({
   };
 
   return (
-    <div className="flex flex-col h-full bg-[#FAF9F5] text-slate-800 overflow-y-auto no-scrollbar">
+    <div className="flex flex-col h-full bg-[#FAF9F5] text-slate-800 relative overflow-hidden">
       {/* Top Header */}
       <div className="px-5 pt-5 sm:pt-3 pb-2 flex items-center justify-between sticky top-0 bg-[#FAF9F5]/95 backdrop-blur-md z-10">
         <button
@@ -87,7 +87,8 @@ export const Screen5RideDetails: React.FC<Screen5RideDetailsProps> = ({
         </div>
       </div>
 
-      <div className="px-5 py-2 flex-1 space-y-4">
+      {/* Scrollable Content (with pb-32 to prevent FAB overlap) */}
+      <div className="px-5 py-2 flex-1 space-y-4 overflow-y-auto no-scrollbar pb-32">
         {/* Driver Profile Card */}
         <div className="p-4 rounded-2xl bg-white border border-slate-200/90 shadow-2xs">
           <div className="flex items-center justify-between">
@@ -236,19 +237,21 @@ export const Screen5RideDetails: React.FC<Screen5RideDetailsProps> = ({
         </div>
       </div>
 
-      {/* Sticky Bottom Booking Bar */}
-      <div className="p-5 mt-auto bg-gradient-to-t from-[#FAF9F5] via-[#FAF9F5] to-transparent pt-3">
-        <button
-          onClick={onConfirmAndBook}
-          className="w-full py-3.5 px-6 rounded-2xl bg-[#00875A] hover:bg-[#00704A] active:scale-[0.98] transition-all text-white font-semibold text-sm tracking-wide shadow-md shadow-[#00875A]/25 flex items-center justify-center gap-2 cursor-pointer"
-        >
-          <span>Confirm & Book • {getSeatFriendlyName(selectedSeatId)} Seat</span>
-          <ArrowRight className="w-4 h-4" />
-        </button>
-        <p className="text-center text-[11px] font-semibold text-emerald-800 mt-2 flex items-center justify-center gap-1">
-          <Sparkles className="w-3 h-3 text-amber-500" />
-          You'll earn <span className="font-bold">30 points</span> for this ride
-        </p>
+      {/* Floating Action Button (FAB) at Bottom with Safe Spacing */}
+      <div className="absolute bottom-4 left-4 right-4 z-30 pointer-events-none">
+        <div className="flex flex-col items-center">
+          <button
+            onClick={onConfirmAndBook}
+            className="pointer-events-auto w-full py-3.5 px-6 rounded-2xl bg-[#00875A] hover:bg-[#00704A] active:scale-[0.98] transition-all text-white font-semibold text-sm tracking-wide shadow-xl shadow-[#00875A]/35 flex items-center justify-center gap-2 cursor-pointer border border-emerald-400/30"
+          >
+            <span>Confirm & Book • {getSeatFriendlyName(selectedSeatId)} Seat</span>
+            <ArrowRight className="w-4 h-4" />
+          </button>
+          <div className="text-center text-[10px] font-bold text-emerald-900 bg-white/95 backdrop-blur-md mt-1.5 py-0.5 px-3 rounded-full shadow-sm border border-emerald-200 flex items-center justify-center gap-1">
+            <Sparkles className="w-3 h-3 text-amber-500" />
+            <span>You'll earn <span className="font-extrabold text-emerald-950">30 points</span> for this ride</span>
+          </div>
+        </div>
       </div>
     </div>
   );

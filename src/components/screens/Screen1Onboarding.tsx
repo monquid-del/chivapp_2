@@ -10,11 +10,13 @@ export const Screen1Onboarding: React.FC<Screen1OnboardingProps> = ({ onGetStart
   return (
     <div className="flex flex-col h-full bg-[#FAF9F5] text-slate-800 overflow-y-auto no-scrollbar">
       {/* Top Header Brand */}
-      <div className="pt-6 sm:pt-4 pb-1 text-center px-6">
-        <h1 className="text-3xl font-extrabold tracking-widest text-[#154331]">
-          CHIVAPP
-        </h1>
-        <p className="text-xs font-semibold text-slate-700 tracking-wide mt-0.5">
+      <div className="pt-6 sm:pt-4 pb-1 text-center px-6 flex flex-col items-center">
+        <img
+          src={ASSETS.logo}
+          alt="CHIVAPP"
+          className="w-[280px] h-[60px] object-contain mx-auto"
+        />
+        <p className="text-xs font-semibold text-slate-700 tracking-wide mt-1">
           Share the ride <span className="text-[#2D6A4F] mx-1">•</span> Build the city
         </p>
       </div>
